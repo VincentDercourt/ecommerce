@@ -1,6 +1,81 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-test:
-  path: /test/{id}
-  controller: App\Controller\TestController::toto
+welcome:
+  path: /
+  controller: App\Controller\IndexController::welcome
+
+details:
+  path: /details/{id}-{name}
+  controller: App\Controller\IndexController::details
+  requirements:
+    id: '[0-9]{1,4}'
+    name: '.+'
+
+category:
+  path: /category
+  controller: App\Controller\IndexController::category
+
+404:
+  path: /404
+  controller: App\Controller\IndexController::error404
+
+blog:
+  path: /blog
+  controller: App\Controller\IndexController::blog
+
+blog_details:
+  path: /blog-details
+  controller: App\Controller\IndexController::blogDetails
+
+checkout:
+  path: /checkout
+  controller: App\Controller\IndexController::checkout
+
+contact:
+  path: /contact
+  controller: App\Controller\IndexController::contact
+
+faq:
+  path: /faq
+  controller: App\Controller\IndexController::faq
+
+whishlist:
+  path: /whishlist
+  controller: App\Controller\IndexController::whishlist
+
+product_comparison:
+  path: /product-comparison
+  controller: App\Controller\IndexController::product_comparison
+
+cart:
+  path: /cart
+  controller: App\Controller\IndexController::cart
+
+signin:
+  path: /signin
+  controller: App\Controller\IndexController::signin
+
+conditions:
+  path: /conditions
+  controller: App\Controller\IndexController::conditions
+
+track_orders:
+  path: /track_orders
+  controller: App\Controller\IndexController::track_orders
+
+create_product:
+  path: /createProduct
+  controller: App\Controller\TestController::createProduct
+get_product:
+  path: /getProduct/{id}
+  controller: App\Controller\TestController::getProduct
+get_products:
+  path: /getProducts
+  controller: App\Controller\TestController::getProducts
+update_products:
+  path: /updateProduct/{id}
+  controller: App\Controller\TestController::updateProduct
+delete_products:
+    path: /deleteProduct/{id}
+    controller: App\Controller\TestController::deleteProduct

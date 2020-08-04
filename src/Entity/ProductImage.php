@@ -24,7 +24,7 @@ class ProductImage
 
     /**
      * @ORM\OneToOne(targetEntity="Products")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id", unique=false)
      */
     private Products $products;
 

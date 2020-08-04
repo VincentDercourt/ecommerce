@@ -35,6 +35,30 @@ class ProductsRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findByExampleField()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(2)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findById($id)
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = '
+        SELECT * FROM products p
+        LEFT JOIN product_image pm ON pm.product_id=p.id
+        WHERE p.id = :id
+        ';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+
+        return $stmt->fetchAll();
+    }
 
     /*
     public function findOneBySomeField($value): ?Products
